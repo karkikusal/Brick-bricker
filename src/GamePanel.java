@@ -61,7 +61,7 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
 
             g.setColor(Color.red);
             g.setFont(new Font("serif",Font.BOLD,60));
-            g.drawString("**Game-over**Score:"+score,40,300);
+            g.drawString("Game-over**Score"+score,40,300);
 
             g.setFont(new Font("serif",Font.BOLD,30));
             g.drawString("Press Enter to Play Again",120,500);
