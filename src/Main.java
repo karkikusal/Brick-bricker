@@ -11,7 +11,7 @@ public class Main {
         frame.setTitle("Game");
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-     
+        frame.setLocationRelativeTo(gPanel);
 
         frame.add(gPanel);
         frame.setVisible(true);
