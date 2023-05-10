@@ -2,6 +2,7 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 import javax.swing.Timer;
 
 import javax.swing.JPanel;
@@ -10,12 +11,14 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements KeyListener,ActionListener{
     private boolean play = false;
+    Random rand = new Random();
+
     private int score = 0;
     private int totalBrick = 21;
     private Timer timer;
-    private int delay= 8;
-    private int ballposX = 120;
-    private int ballposY = 350;
+    private int delay= 20;
+    private int ballposX;
+    private int ballposY;
     private int ballXdir = -1;
     private int ballYdir = -2;
     private int playerX = 350;
@@ -27,7 +30,12 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
         setFocusTraversalKeysEnabled(false);
         timer = new Timer(delay, this);
         timer.start();
+        // Set the ball position to a random point within the game area
+
+        ballposX = rand.nextInt(640) + 20; // Random value between 20 and 660
+        ballposY = rand.nextInt(200) + 200; // Random value between 200 and 400
     }
+
 
     @Override
     public void paint(Graphics g) {
@@ -60,11 +68,11 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
             ballYdir = 0;
 
             g.setColor(Color.red);
-            g.setFont(new Font("serif",Font.BOLD,60));
-            g.drawString("Game-over**Score"+score,40,300);
+            g.setFont(new Font("serif",Font.BOLD,50));
+            g.drawString("Game-over**Score: "+score,90,300);
 
             g.setFont(new Font("serif",Font.BOLD,30));
-            g.drawString("Press Enter to Play Again",120,500);
+            g.drawString("Press Enter to Play Again",175,350);
         }
 
         //win condition
@@ -74,11 +82,11 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
             ballYdir = 0;
 
             g.setColor(Color.red);
-            g.setFont(new Font("serif",Font.BOLD,25));
-            g.drawString(" YOU WIN**Score: "+score,40,300);
+            g.setFont(new Font("serif",Font.BOLD,50));
+            g.drawString(" YOU WIN**Score: "+score,90,300);
 
             g.setFont(new Font("serif",Font.BOLD,30));
-            g.drawString(" Play Again",120,500);
+            g.drawString("Press Enter to Play Again",175,350);
         }
 
 
@@ -91,12 +99,12 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
     private void moveLeft()
     {
         play = true;
-        playerX -=50;
+        playerX -=10;
     }
     private void moveRight()
     {
         play = true;
-        playerX += 50;
+        playerX +=10 ;
     }
 
     @Override
@@ -121,8 +129,8 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
             if(!play){
                 score = 0;
                 totalBrick = 21;
-                ballposX = 120;
-                ballposY = 350;
+                ballposX =rand.nextInt(640) + 20;
+                ballposY = rand.nextInt(200) + 200;;
                 ballXdir= -2;
                 ballYdir = -4;
                 playerX = 320;
