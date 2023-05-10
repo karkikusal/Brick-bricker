@@ -16,13 +16,14 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
     private int score = 0;
     private int totalBrick = 21;
     private Timer timer;
-    private int delay= 20;
+    private int delay= 8;
     private int ballposX;
     private int ballposY;
     private int ballXdir = -1;
     private int ballYdir = -2;
     private int playerX = 350;
-    private int ballSpeed=3;
+    private int ballSpeed=2;
+
     private Mapgenerator map;
     public GamePanel() {
         map = new Mapgenerator(3, 7);
@@ -49,7 +50,7 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
 
         g.fillRect(0, 0, 3, 592);
         g.fillRect(0, 0, 692, 3);
-        g.fillRect(691, 0, 3, 592);
+        g.fillRect(683, 0, 3, 592);
 
         g.setColor(Color.blue);
         g.fillRect(playerX, 550, 100, 12);
@@ -100,12 +101,12 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
     private void moveLeft()
     {
         play = true;
-        playerX -=10;
+        playerX -=15;
     }
     private void moveRight()
     {
         play = true;
-        playerX +=10 ;
+        playerX +=15 ;
     }
 
     @Override

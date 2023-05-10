@@ -32,7 +32,7 @@ public class Mapgenerator {
                     g.setColor(Color.blue);
                     g.setStroke(new BasicStroke(4));
                     g.drawRect(j*brickWidth+80,i*brickHeight+50,brickWidth,brickHeight);
-                }
+               }
             }
         }
     }
