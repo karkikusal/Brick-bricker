@@ -22,6 +22,7 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
     private int ballXdir = -1;
     private int ballYdir = -2;
     private int playerX = 350;
+    private int ballSpeed=3;
     private Mapgenerator map;
     public GamePanel() {
         map = new Mapgenerator(3, 7);
@@ -190,21 +191,21 @@ public class GamePanel extends JPanel implements KeyListener,ActionListener{
                             else {
                                 ballYdir = -ballYdir;
                             }
-                            break A;
+//                            break A;
                         }
                     }
                 }
             }
 
-            ballposX += ballXdir;
-            ballposY += ballYdir;
+            ballposX += ballXdir* ballSpeed;
+            ballposY += ballYdir* ballSpeed;
         }
         repaint();
     }
 
 
 
-        }
+}
 
 
 
